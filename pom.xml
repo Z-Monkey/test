@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com</groupId>
+  <artifactId>test</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>test Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  	<spring.version>4.3.13.RELEASE</spring.version>
+  	<junit.version>4.12</junit.version>
+  	<javax.servlet.jsp-api.version>2.3.1</javax.servlet.jsp-api.version>
+	<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+  </properties>
+  <dependencies>
+   <!-- spring框架支持 -->
+	  <dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		<!--jsp、servlet支持， provide属性表示只参与测试，不加载导war包中 -->
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>${javax.servlet.jsp-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${javax.servlet-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+  	<!-- junit支持 -->
+	    <dependency>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+	      <version>${junit.version}</version>
+	      <scope>test</scope>
+	    </dependency>
+  </dependencies>
+  <build>
+    	<finalName>gitdemo01</finalName>
+    	<plugins> 
+    	<!--  tomcat插件-->
+	    	<plugin>
+					<groupId>org.apache.tomcat.maven</groupId>
+					<artifactId>tomcat7-maven-plugin</artifactId>
+					<version>2.2</version>
+					<configuration>
+						<port>8081</port>
+						<uriEncoding>UTF-8</uriEncoding>
+					</configuration>
+			</plugin>
+    	
+    	<!-- 解决maven项目无法找到web.xml的错误 -->
+	        <plugin>  
+	            <groupId>org.apache.maven.plugins</groupId>  
+	            <artifactId>maven-war-plugin</artifactId>  
+	            <version>2.3</version>  
+	            <configuration>  
+	                <failOnMissingWebXml>false</failOnMissingWebXml>  
+	            </configuration>  
+	        </plugin> 
+	        
+	    </plugins>
+  </build>
+</project>
