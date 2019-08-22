@@ -3,5 +3,11 @@ package com.test.domain;
 public class User {
 	private int id;
 	private String name;
-	private String address;
+	//分支rel完成User的get方法
+	public int getId() {
+		return id;
+	}
+	public String getName() {
+		return name;
+	}
 }
