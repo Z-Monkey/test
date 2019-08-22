@@ -15,4 +15,15 @@ public class User {
 		this.address = address;
 	}
 	
+	//分支rel完成User的get方法
+	public int getId() {
+		return id;
+	}
+	public String getName() {
+		return name;
+	}
+	public String getAddress() {
+		return address;
+	}
+	
 }
