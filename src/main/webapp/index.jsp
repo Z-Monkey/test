@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<p>修改index.jsp文件</p>
+	<p>修改index.jsp文件</p><br>
+	<p>这次我要看与上一个commit版本的index.jsp与现在的index.jsp的不同</p>
+	<div>Staged与Unstaged并存</div>
 </body>
 </html>
